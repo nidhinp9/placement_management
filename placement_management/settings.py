@@ -76,11 +76,12 @@ WSGI_APPLICATION = 'placement_management.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'placement_management',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'placement_management',  # Change to your MySQL database name
+        'USER': 'root',  # Change to your MySQL username
+        'PASSWORD': 'password',  # Change to your MySQL password
+        'HOST': 'localhost',  # Change if your MySQL server is hosted elsewhere
+        'PORT': '3306',  # Change if your MySQL server is running on a different port
     }
 }
 
@@ -119,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
