@@ -1,0 +1,29 @@
+{% extends 'placement/base.html' %} {% load crispy_forms_tags %} <wbr />
+{% block content %}
+<div class="p-3">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <h3>Edit Your Profile</h3>
+    <a href="{% url 'profile' %}" class="nav-link">
+      <button class="btn btn-primary px-3" style="height: 40px">
+        Go back to Profile
+      </button>
+    </a>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <form method="post" action="{% url 'edit-profile' %}">
+        {% csrf_token %}
+        <fieldset class="form-group">{{ form | crispy }}</fieldset>
+        <button
+          type="submit"
+          value="Update"
+          class="btn btn-primary px-3"
+          style="height: 40px"
+        >
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

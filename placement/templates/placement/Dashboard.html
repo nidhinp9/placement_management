@@ -1,0 +1,31 @@
+{% extends 'placement/base.html' %} {% load static %} {% block content %}
+<body>
+  <h1 class="title">
+    Welcome, <i>{{ user.username }}</i><small id="dash">YOUR DASHBOARD</small>
+  </h1>
+  <!-- if is placed then show -->
+  <!-- {% if isPlaced %} -->
+  <div class="alert alert-success" role="alert">
+    Congratulations for getting placed in
+    <a href="#" class="alert-link">hgg</a>!
+  </div>
+  <!-- {% endif %} -->
+  <style>
+    #dash {
+      font-weight: 100;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+    }
+    .title {
+      margin: 2rem auto;
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+    }
+    .alert-success {
+      width: 50%;
+      margin-left: 2rem;
+    }
+  </style>
+</body>
+
+{% endblock content %}

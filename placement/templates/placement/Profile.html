@@ -1,0 +1,173 @@
+{% extends 'placement/base.html' %} {% block content %}
+<div class="p-3">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <h3>View Your Profile</h3>
+    <a href="{% url 'edit-profile'  %}" class="nav-link">
+      <button class="btn btn-primary px-3" style="height: 40px">
+        Edit Profile
+      </button>
+    </a>
+  </div>
+  <div style="display: flex; justify-content: space-between">
+    <div class="card mr-2 mb-2" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title">Personal Details</h5>
+        <div class="row">
+          <table>
+            <tr>
+              <td class="left-detail">USN :</td>
+              <td class="right-detail">{{user.profile.usn}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Name :</td>
+              <td class="right-detail">{{user.username}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Branch :</td>
+              <td class="right-detail">{{user.profile.branch}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Year :</td>
+              <td class="right-detail">3rd</td>
+            </tr>
+            <tr>
+              <td class="left-detail">CGPA :</td>
+              <td class="right-detail">8.5</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Backlogs :</td>
+              <td class="right-detail">{{user.profile.backlogs}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card mr-2 mb-2" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title">Other Details</h5>
+        <div class="row">
+          <table>
+            <tr>
+              <td class="left-detail">Date of Birth :</td>
+              <td class="right-detail">{{other_details.dob}}</td>
+            </tr>
+
+            <tr>
+              <td class="left-detail">Father's name :</td>
+              <td class="right-detail">{{other_details.father_name}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Mother's name :</td>
+              <td class="right-detail">{{other_details.mother_name}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Category :</td>
+              <td class="right-detail">{{other_details.category}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Gender :</td>
+              <td class="right-detail">{{other_details.gender}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">Address :</td>
+              <td class="right-detail">{{other_details.address}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-3" style="display: flex; justify-content: space-between">
+    <div class="card mr-2 mb-2" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title">Current Education Details</h5>
+        <div class="row">
+          <table>
+            <tr>
+              <td class="left-detail">Semester 1 :</td>
+              <td class="right-detail">
+                {{current_edu_details.first_sem_sgpa}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">Semester 2 :</td>
+              <td class="right-detail">
+                {{current_edu_details.second_sem_sgpa}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">Semester 3 :</td>
+              <td class="right-detail">
+                {{current_edu_details.third_sem_sgpa}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">Semester 4 :</td>
+              <td class="right-detail">
+                {{current_edu_details.fourth_sem_sgpa}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">Semester 5 :</td>
+              <td class="right-detail">
+                {{current_edu_details.fifth_sem_sgpa}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">Semester 6 :</td>
+              <td class="right-detail">
+                {{current_edu_details.sixth_sem_sgpa}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">Semester 7 :</td>
+              <td class="right-detail">
+                {{current_edu_details.seventh_sem_sgpa}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">Semester 8 :</td>
+              <td class="right-detail">
+                {{current_edu_details.eighth_sem_sgpa}}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card mr-2 mb-2" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title">Past Education Details</h5>
+        <div class="row">
+          <table>
+            <tr>
+              <td class="left-detail">10th Board :</td>
+              <td class="right-detail">{{past_edu_details.tenth_scheme}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">10th percentage :</td>
+              <td class="right-detail">
+                {{past_edu_details.tenth_percentage}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">12th board :</td>
+              <td class="right-detail">{{past_edu_details.twelve_scheme}}</td>
+            </tr>
+            <tr>
+              <td class="left-detail">12th percentage :</td>
+              <td class="right-detail">
+                {{past_edu_details.twelve_percentage}}
+              </td>
+            </tr>
+            <tr>
+              <td class="left-detail">CET Rank :</td>
+              <td class="right-detail">{{past_edu_details.cet_rank}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

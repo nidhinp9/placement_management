@@ -1,0 +1,143 @@
+{% extends 'placement/base.html' %} {% block content %}
+<h1>On-campus Recruiters</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Sl. No</th>
+      <th>Company</th>
+      <th>Category</th>
+      <th>CTC (LPA)</th>
+      <th>Stipend</th>
+      <th>Branches</th>
+      <th>BTech Criteria</th>
+      <th>Sem Criteria</th>
+      <th>Profile</th>
+      <th>Job Location</th>
+      <th>Date</th>
+      <th>Date of Drive</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for company in companies %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ company.name }}</td>
+      <td>{{ company.category }}</td>
+      <td>{{ company.ctc }}</td>
+      <td>{{ company.stipend }}</td>
+      <td>{{ company.branches }}</td>
+      <td>{{ company.btech_criteria }}</td>
+      <td>{{ company.sem_criteria }}</td>
+      <td>{{company.job_profile|join:", "}}</td>
+      <td>{{ company.location }}</td>
+      <td>{{ company.date }}</td>
+      <td>{{ company.date_of_drive }}</td>
+    </tr>
+    {% endfor %}
+    <!-- <tr>
+        <td>2</td>
+        <td>Google</td>
+        <td>IT</td>
+        <td>15</td>
+        <td>10,000</td>
+        <td>CSE, IT, ECE</td>
+        <td>8</td>
+        <td>7th</td>
+        <td>Data Analyst</td>
+        <td>Bangalore</td>
+        <td>January 20th, 2023</td>
+        <td>January 15th, 2023</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Philips</td>
+        <td>IT</td>
+        <td>15</td>
+        <td>10,000</td>
+        <td>CSE, IT, ECE</td>
+        <td>8</td>
+        <td>7th</td>
+        <td>Data Analyst</td>
+        <td>Bangalore</td>
+        <td>January 20th, 2023</td>
+        <td>January 15th, 2023</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>SAP Labs</td>
+        <td>IT</td>
+        <td>15</td>
+        <td>10,000</td>
+        <td>CSE, IT, ECE</td>
+        <td>8</td>
+        <td>7th</td>
+        <td>Data Analyst</td>
+        <td>Bangalore</td>
+        <td>January 20th, 2023</td>
+        <td>January 15th, 2023</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Citrix</td>
+        <td>IT</td>
+        <td>15</td>
+        <td>10,000</td>
+        <td>CSE, IT, ECE</td>
+        <td>8</td>
+        <td>7th</td>
+        <td>Data Analyst</td>
+        <td>Bangalore</td>
+        <td>January 20th, 2023</td>
+        <td>January 15th, 2023</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Amazon</td>
+        <td>IT</td>
+        <td>15</td>
+        <td>10,000</td>
+        <td>CSE, IT, ECE</td>
+        <td>8</td>
+        <td>7th</td>
+        <td>Data Analyst</td>
+        <td>Bangalore</td>
+        <td>January 20th, 2023</td>
+        <td>January 15th, 2023</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Fivetran</td>
+        <td>IT</td>
+        <td>15</td>
+        <td>10,000</td>
+        <td>CSE, IT, ECE</td>
+        <td>8</td>
+        <td>7th</td>
+        <td>Data Analyst</td>
+        <td>Bangalore</td>
+        <td>January 20th, 2023</td>
+        <td>January 15th, 2023</td>
+      </tr> -->
+
+    <!-- Add additional rows for the rest of the data -->
+  </tbody>
+</table>
+<style>
+  table {
+    border-collapse: collapse; /* remove the space between the cells */
+    width: 100%; /* make the table take up the full width of its container */
+  }
+
+  th,
+  td {
+    border: 1px solid rgb(179, 179, 179); /* add a border to the cells */
+    padding: 8px; /* add some padding to the cells */
+    text-align: left; /* align the text inside the cells to the left */
+  }
+
+  th {
+    background-color: #b3b3b3; /* add a light gray background color to the headers */
+    font-weight: bold; /* make the headers bold */
+  }
+</style>
+{% endblock content %}

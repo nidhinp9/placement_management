@@ -1,0 +1,71 @@
+{% extends 'placement/base.html' %} {% block content %}
+<div class="p-3">
+  <h3 class="pb-3">Manage Registrations to Companies</h3>
+  <div style="display: flex">
+    <div class="card m-2" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title">Register to Attend</h5>
+        <h6 class="card-subtitle mt-4 mb-2 text-muted">Select Company</h6>
+        <!-- <div class="dropdown">
+          <button
+            class="btn btn-outline-secondary dropdown-toggle mt-1 mb-4"
+            type="button"
+            style="width: 100%; text-align: left"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select Company from the list
+          </button>
+          <ul class="dropdown-menu">
+            {% for company in registered_companies %}
+            <li>
+              <a class="dropdown-item" onclick="">{{ company }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div> -->
+        <form method="POST" action="{% url 'register-deregister' %}">
+          {% csrf_token %}
+          <select name="register_company" class="dropdown">
+            {% for company in all_companies %}
+            <option class="dropdown-item" value="{{company.value}}">
+              {{ company.display }}
+            </option>
+            {% endfor %}
+          </select>
+          <input
+            class="btn btn-primary dropdown-toggle mt-3 mb-4"
+            type="submit"
+            value="Submit"
+            name="register"
+            style="display: block"
+          />
+        </form>
+      </div>
+    </div>
+    <div class="card m-2" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title">De-Register</h5>
+        <h6 class="card-subtitle mt-4 mb-2 text-muted">Select Company</h6>
+        <form method="post" action="{% url 'register-deregister' %}">
+          {% csrf_token %}
+          <select name="deregister_company" class="dropdown">
+            {% for company in registered_companies %}
+            <option class="dropdown-item" value="{{company.value}}">
+              {{ company.display }}
+            </option>
+            {% endfor %}
+          </select>
+          <input
+            class="btn btn-danger dropdown-toggle mt-3 mb-4"
+            type="submit"
+            value="Submit"
+            name="deregister"
+            style="display: block"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
