@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'placement_management',  # Change to your MySQL database name
         'USER': 'root',  # Change to yousr MySQL username
-        'PASSWORD': 'password',  # Change to your MySQL password
+        'PASSWORD': '0910',  # Change to your MySQL password
         'HOST': 'localhost',  # Change if your MySQL server is hosted elsewhere
         'PORT': '3306',  # Change if your MySQL server is running on a different port
     }
