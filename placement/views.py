@@ -11,6 +11,7 @@ import json
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
+from placement.forms import UserCreationForm
 # Create your views here.
 
 
@@ -211,27 +212,27 @@ class AddJobProfile(LoginRequiredMixin, CreateView):
 @method_decorator(login_required, name='dispatch')
 @method_decorator(user_passes_test(lambda u: u.is_superuser), name='dispatch')
 class CreateUser(LoginRequiredMixin, CreateView):
-    model = User
+    #model = User
+    form_class = UserCreationForm
     template_name = 'placement/CreateUser.html'
     success_url = '/create-profile'
-    fields = ['username', 'password']
+    # def post(self, request, *args, **kwargs):
+    #     form = self.get_form()
+    #     if form.is_valid():
+    #         self.object = form.save()
+    #         print(self.object)
+    #         self.object.save()
+    #         if 'add-another' in request.POST:
+    #             self.success_url = '/job-profile'
+    #         return self.form_valid(form)
+    #     else:
+    #         return self.form_invalid(form)
 
-    def post(self, request, *args, **kwargs):
-        form = self.get_form()
-        if form.is_valid():
-            self.object = form.save(commit=False)
-            self.object.save()
-            if 'add-another' in request.POST:
-                self.success_url = '/job-profile'
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['heading'] = 'Create User'
-        context['postUrl'] = 'create-user'
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['heading'] = 'Create User'
+    #     context['postUrl'] = 'create-user'
+    #     return context
 
 
 @method_decorator(login_required, name='dispatch')
