@@ -3,7 +3,7 @@
         "model": "placement.student",
         "pk": 1,
         "fields": {
-            "name": "Alice",
+            "name": "ABC",
             "email": "alice@example.com",
             "password": "abc123",
             "phone": "123-456-7890",
